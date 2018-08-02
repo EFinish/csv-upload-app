@@ -1,0 +1,45 @@
+Abstract
+- file import a CSV file
+    - csv format
+        - A : id
+        - B : name (First Last)
+        - C : age
+        - D : address
+        - E : team (color)
+        - no delimeter
+    - show real time progress while importing
+    - input field must be 'uploadField'
+- text input
+    - searches names
+        - autocomplete-like
+        - result shows max 20 related items
+            - result id must be 'result-N'
+                - N = order of item in search result list (id?) 
+            - on click of result, show all of item's data
+    - input id must be 'searchField'
+- SPA : single page application
+- look anyway desired
+- application has to be installable by npm install and npm start
+- dependencies should be installed and started by npm
+- API for application
+    - GET /
+        - requires: none
+        - returns: SPA front end
+    - POST /import
+        - requires: csv file to upload
+        - returns: N/A : success/no success
+    - POST /search
+        - requires: {query : "name of search value"}
+        - returns: 
+            [
+                {
+                    "id"        : id,
+                    "name"      : "name of person",
+                    "age"       : age,
+                    "address"   : "address of person",
+                    "team"      : "team of person (color)"  
+                },
+                {
+                    //object 2 in same format
+                }
+            ]
