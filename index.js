@@ -15,20 +15,34 @@ app.get('/', function(request, response){
 app.post('/import', function(request, response){
     //intake the file uplaoded
 
+    //dummy response
+    response.status(200).end();
 });
 
-app.post('/searcg', function(request, response){
+app.post('/search', function(request, response){
+    
+    //test payload
+    var payload = [
+        {
+            "id"        : 1,
+            "name"      : "El Testo",
+            "age"       : 38,
+            "address"   : "1234 Test Lane",
+            "team"      : "salmon"  
+        }
+    ];
+    
     //respond with payload
-
+    response.status(200).end(payload);
 });
 
 //server listening on port 8080
 var server = app.listen(
     8080,
+    '127.0.0.1',
     function() {
         var host = server.address().address;
         var port = server.address().port;
-
-        console.log("Running server locally.\nAddress for app is http://%s:%s", host, port)
+        console.log("Running server locally.\nAddress for app is http://%s:%s", host, port);
     }  
 );
