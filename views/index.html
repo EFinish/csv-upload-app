@@ -21,14 +21,16 @@
                 <h1 role="banner">CSV Upload Application</h1>
             </div>
         </div>
-        <div class="row">
+        <div class="row" v-if="!file_loaded">
             <div class="col-sm-12">
-
+                <p>Please input the csv file to upload for the application.</p>
             </div>
+            <csv-input-component></csv-input-component>
         </div>
     </div>
 </body>
-<script src="/public/js/vue-component.js" type="text/javascript"></script>
-<script src="/public/js/vue-app.js" type="text/javascript"></script>
+<script src="/public/js/services.js" type="text/javascript"></script>
+<script src="/public/js/index/vue-components.js" type="text/javascript"></script>
+<script src="/public/js/index/vue-app.js" type="text/javascript"></script>
 
 </html>
