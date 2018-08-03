@@ -20,7 +20,6 @@ app.post('/import', function(request, response){
 });
 
 app.post('/search', function(request, response){
-    
     //test payload
     var payload = [
         {
