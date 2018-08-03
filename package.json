@@ -1,0 +1,19 @@
+{
+  "name": "csv-upload-app",
+  "version": "1.0.0",
+  "description": "Web application for uploading a csv file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EFinish/csv-upload-app.git"
+  },
+  "author": "EFinish",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EFinish/csv-upload-app/issues"
+  },
+  "homepage": "https://github.com/EFinish/csv-upload-app#readme"
+}
