@@ -1,16 +1,34 @@
 console.log("Whrrr, beginning application...");
 
-var http = require('http');
+//init express application object
+var express = require('express');
+var app = express();
 
-http.createServer(function (request, response) {
-    response.writeHead(
-        200,
-        {
-            'Content-Type' : 'text/plain'
-        }
-    );
+//http routing for application object
+//GET
+app.get('/', function(request, response){
+    //return index of application
+    response.send("put front end code here");
+});
 
+//POST
+app.post('/import', function(request, response){
+    //intake the file uplaoded
 
-}).listen(8081);
+});
 
-console.log("Running server locally.")
+app.post('/searcg', function(request, response){
+    //respond with payload
+
+});
+
+//server listening on port 8080
+var server = app.listen(
+    8080,
+    function() {
+        var host = server.address().address;
+        var port = server.address().port;
+
+        console.log("Running server locally.\nAddress for app is http://%s:%s", host, port)
+    }  
+);
