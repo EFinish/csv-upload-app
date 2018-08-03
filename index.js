@@ -6,7 +6,7 @@ var app = express();
 
 //http routing for application object
 //define public route
-application.use("/public", express.static(path.join(__dirname, 'public')));
+app.use("/public", express.static(__dirname+'/public'));
 
 //GET
 app.get('/', function(request, response){
