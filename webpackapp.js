@@ -7,6 +7,8 @@ import BootstrapVue from './node_modules/bootstrap-vue/dist/bootstrap-vue.min.js
 
 Vue.use(BootstrapVue);
 
+import components from './public/js/index/components.js';
+
 var app = new Vue({
     el: '#app',
     data: {
