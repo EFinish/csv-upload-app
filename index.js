@@ -5,6 +5,9 @@ var express = require('express');
 var app = express();
 
 //http routing for application object
+//define public route
+application.use("/public", express.static(path.join(__dirname, 'public')));
+
 //GET
 app.get('/', function(request, response){
     //return index of application
