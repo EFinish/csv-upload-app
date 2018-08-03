@@ -8,7 +8,7 @@ var app = express();
 //GET
 app.get('/', function(request, response){
     //return index of application
-    response.send("put front end code here");
+    response.sendFile(__dirname+"/views/index.html");
 });
 
 //POST
