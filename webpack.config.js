@@ -21,6 +21,11 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader'
+            },
+            // allow css
+            {
+                test:/\.css$/,
+                use:['style-loader','css-loader']
             }
         ]
     },
