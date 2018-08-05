@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/EFinish/csv-upload-app#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "bootstrap-vue": "^2.0.0-rc.11",
