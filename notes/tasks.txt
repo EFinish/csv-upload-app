@@ -21,6 +21,8 @@ Abstract
 - look anyway desired
 - application has to be installable by npm install and npm start
 - dependencies should be installed and started by npm
+    - command 1: npm install
+    - command 2: npm start
 - API for application
     - GET /
         - requires: none
