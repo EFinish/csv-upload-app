@@ -11,25 +11,23 @@ Vue.use(BootstrapVue);
 //import front end services
 import services from './public/js/services.js';
 
-// //import vue components to be used in vue application
-import CsvFileInput from './public/vue/CsvFileInput.vue';
+//import vue components to be used in vue application
+import UploadField from './public/vue/UploadField.vue';
+import SearchField from './public/vue/SearchField.vue';
 
 //the Vue app instance itself
 var app = new Vue({
     el: '#app',
     components: {
-        CsvFileInput
+        UploadField,
+        SearchField
     },
     data: {
-        file_loaded: false,
-        people: []
+        file_loaded: false
     },
     methods: {
         setFileLoaded: function(value) {
             this.file_loaded = value;
-        },
-        setPeople: function(values) {
-            this.people = values;
         }
     }
 });
