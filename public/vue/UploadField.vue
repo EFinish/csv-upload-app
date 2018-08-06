@@ -6,8 +6,8 @@
 </template>
 
 <script>
-// import FileService from '../js/services.js';
-var axios = require('axios');
+import {FileService} from '../js/services';
+// var axios = require('axios');
 export default {
     data: function() {
         return {
