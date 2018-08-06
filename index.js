@@ -3,10 +3,13 @@ console.log("Whrrr, beginning application...");
 //init express application object
 var express = require('express');
 var app = express();
+app.use(express.json());
+// var bodyParser = require('body-parser');
 
 //http routing for application object
 //define public folder
 app.use("/public", express.static(__dirname+'/public'));
+// app.use(bodyParser.urlencoded({extended: true}));
 
 //GET
 app.get('/', function(request, response){
@@ -17,9 +20,12 @@ app.get('/', function(request, response){
 //POST
 app.post('/import', function(request, response){
     //intake the file uplaoded
+    console.log(request);
+    // console.log(request.files);
+    // console.log(request.body);
 
     //dummy response
-    response.status(200).end();
+    response.status(200).send();
 });
 
 app.post('/search', function(request, response){

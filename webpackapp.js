@@ -9,7 +9,7 @@ import BootstrapVue from './node_modules/bootstrap-vue/dist/bootstrap-vue.min.js
 Vue.use(BootstrapVue);
 
 //import front end services
-import services from './public/js/services.js';
+// import services from './public/js/services.js';
 
 //import vue components to be used in vue application
 import UploadField from './public/vue/UploadField.vue';

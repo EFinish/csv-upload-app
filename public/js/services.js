@@ -21,3 +21,5 @@ var PeopleService = (function(){
         search: search
     };
 })();
+
+export {FileService, PeopleService};
