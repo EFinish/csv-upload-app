@@ -27,22 +27,23 @@ export default {
         },
         uploadFile: function() {
             console.log(this.file);
-            let formData = new FormData();
+            FileService.upload("wow");
+            // let formData = new FormData();
             // formData.append('file', this.file);
             // axios.post('/import', )
-            axios.post(
-                '/import',
-                formData,
-                {
-                    headers: {
-                        'Content-Type': 'multipart/form-data'
-                    }
-                }
-            )
-            .then(function(response){
-                console.log("done!");
-                console.log(response);
-            });  
+            // axios.post(
+            //     '/import',
+            //     formData,
+            //     {
+            //         headers: {
+            //             'Content-Type': 'multipart/form-data'
+            //         }
+            //     }
+            // )
+            // .then(function(response){
+            //     console.log("done!");
+            //     console.log(response);
+            // });  
             // console.log(FileService);
             //upload file via post
 
