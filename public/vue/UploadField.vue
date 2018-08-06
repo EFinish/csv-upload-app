@@ -17,7 +17,6 @@ export default {
     methods: {
         onChange: function(e) {
             var files = e.target.files;
-
             if (files.length !== 1) {
                 return;
             } else {
@@ -26,26 +25,19 @@ export default {
             }
         },
         uploadFile: function() {
-            console.log(this.file);
-            FileService.upload("wow");
-            // let formData = new FormData();
-            // formData.append('file', this.file);
-            // axios.post('/import', )
-            // axios.post(
-            //     '/import',
-            //     formData,
-            //     {
-            //         headers: {
-            //             'Content-Type': 'multipart/form-data'
-            //         }
-            //     }
-            // )
-            // .then(function(response){
-            //     console.log("done!");
-            //     console.log(response);
-            // });  
-            // console.log(FileService);
-            //upload file via post
+            //prepare data to send to service
+            let formData = new FormData();
+            formData.append('file', this.file);
+
+            //send to service
+            FileService.upload(this.file)
+            .then(function(response){
+                console.log("done!");
+                // console.log(response);
+            })
+            .catch(function(){
+                console.log('FAILURE!!');
+            });
 
             //after upload success
             // app.setFileLoaded(true);

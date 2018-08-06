@@ -3,6 +3,8 @@ console.log("Whrrr, beginning application...");
 //init express application object
 var express = require('express');
 var app = express();
+var fs = require('fs');
+
 app.use(express.json());
 // var bodyParser = require('body-parser');
 
@@ -18,14 +20,17 @@ app.get('/', function(request, response){
 });
 
 //POST
-app.post('/import', function(request, response){
+app.post('/import', function(request, response, next){
     //intake the file uplaoded
-    console.log(request);
-    // console.log(request.files);
-    // console.log(request.body);
+
+    request.pipe(fs.createWriteStream('./'));
+    request.on('end', next);
 
     //dummy response
-    response.status(200).send();
+    response
+        .status(200)
+        .json({ message: 'Request received' })
+        .send();
 });
 
 app.post('/search', function(request, response){
@@ -41,7 +46,10 @@ app.post('/search', function(request, response){
     ];
     
     //respond with payload
-    response.status(200).end(payload);
+    response
+        .status(200)
+        .json(payload)
+        .send();
 });
 
 //server listening on port 8080
