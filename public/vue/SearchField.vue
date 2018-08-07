@@ -9,15 +9,19 @@
         </div>
         <div class="col-sm-3 form-group" >
             <b-list-group>
-                <b-list-group-item button v-for="result in results_first_half" @click="selectPerson(result)">
-                    {{result.name}}
+                <b-list-group-item button v-for="(result, index) in results_first_half" @click="selectPerson(result)">
+                    <div :id="'result-'+index"> 
+                        {{result.name}}
+                    </div>
                 </b-list-group-item>
             </b-list-group>
         </div>
         <div class="col-sm-3 form-group" >
             <b-list-group>
-                <b-list-group-item button v-for="result in results_last_half" @click="selectPerson(result)">
-                    {{result.name}}
+                <b-list-group-item button v-for="(result, index) in results_last_half" @click="selectPerson(result)">
+                    <div :id="'result-'+(index+result_limit_half)"> 
+                        {{result.name}}
+                    </div>
                 </b-list-group-item>
             </b-list-group>
         </div>
