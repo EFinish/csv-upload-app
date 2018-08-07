@@ -8,8 +8,6 @@ module.exports = {
         path: __dirname + '/public/js/dist/',
         filename: "bundle.js"
     },
-    watch: true,
-
     module: {
         rules: [
             // allow .vue files
