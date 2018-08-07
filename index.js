@@ -30,7 +30,8 @@ app.post('/import', function (request, response) {
         //parse file after upload
         var i = 0;
         uploadedPersons = [];
-        csv.fromPath('./uploadedFile.csv').on('data', function (data) {
+        csv.fromPath('./uploadedFile.csv')
+            .on('data', function (data) {
                 //push uploaded data row as object to data
                 uploadedPersons.push({
                     id: data[0],
@@ -39,17 +40,14 @@ app.post('/import', function (request, response) {
                     address: data[3],
                     team: data[4]
                 });
-
-            // }
-        })
-        .on("end", function () {
-            // console.log(uploadedPersons);
-            //respond that everything went good
-            response
-                .status(200)
-                .json({ data: 'Request received' })
-                .send();
-        });
+            })
+            .on("end", function () {
+                //respond that everything went good
+                response
+                    .status(200)
+                    .json({ data: 'Request received' })
+                    .send();
+            });
     });
 });
 
