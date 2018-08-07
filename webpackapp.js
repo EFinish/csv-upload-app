@@ -26,12 +26,16 @@ var app = new Vue({
         EventBus.$on('set-uploading', this.setUploading);
         EventBus.$on('set-progress-percentage', this.setProgressPercentage);
         EventBus.$on('set-progress-step', this.setProgressStep);
+        EventBus.$on('set-selected-person', this.setSelectedPerson);
+        EventBus.$on('show-modal', this.showModal);
     },
     destroyed: function() {
         EventBus.$off('set-file-loaded', this.setFileLoaded);
         EventBus.$off('set-uploading', this.setUploading);
         EventBus.$off('set-progress-percentage', this.setProgressPercentage);
         EventBus.$off('set-progress-step', this.setProgressStep);
+        EventBus.$off('set-selected-person', this.setSelectedPerson);
+        EventBus.$off('show-modal', this.showModal);
     },
     components: {
         UploadField,
@@ -42,7 +46,8 @@ var app = new Vue({
         file_loaded: false,
         uploading: false,
         progress_percentage: 0,
-        progress_step: null
+        progress_step: null,
+        selected_person: {}
     },
     computed: {
         uploadable: function() {
@@ -64,6 +69,13 @@ var app = new Vue({
         },
         setProgressStep: function(data) {
             this.progress_step = data;
+        },
+        setSelectedPerson: function(data) {
+            this.selected_person = data;
+            console.log(data);
+        },
+        showModal: function(name) {
+            this.$root.$emit('bv::show::modal', name);
         }
     }
 });
