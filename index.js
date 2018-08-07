@@ -28,9 +28,9 @@ app.post('/import', function (request, response) {
     //after uploading file
     request.on('end', function () {
         //parse file after upload
+        var i = 0;
+        uploadedPersons = [];
         csv.fromPath('./uploadedFile.csv').on('data', function (data) {
-            uploadedPersons = [];
-            for (var i = 0; i < data.length; i++) {
                 //push uploaded data row as object to data
                 uploadedPersons.push({
                     id: data[0],
@@ -40,9 +40,10 @@ app.post('/import', function (request, response) {
                     team: data[4]
                 });
 
-            }
+            // }
         })
         .on("end", function () {
+            // console.log(uploadedPersons);
             //respond that everything went good
             response
                 .status(200)
@@ -53,16 +54,24 @@ app.post('/import', function (request, response) {
 });
 
 app.post('/search', function (request, response) {
-    //test payload
-    var payload = [
-        {
-            "id": 1,
-            "name": "El Testo",
-            "age": 38,
-            "address": "1234 Test Lane",
-            "team": "salmon"
+    //create payload to return
+    var payload = [];
+    //get query
+    var query = request.body.query;
+
+    if (typeof query !== 'undefined' || query !== null) {
+        //create regex to search using (case insensitive)
+        var reg = new RegExp(query, "gi");
+        //loop through array, cap out at 20 results
+        for (var i = 0; i < uploadedPersons.length; i++) {
+            if (uploadedPersons[i].name.match(reg)) {
+                payload.push(uploadedPersons[i]);
+            }
+            if (payload.length === 20) {
+                break;
+            }
         }
-    ];
+    }
 
     //respond with payload
     response
