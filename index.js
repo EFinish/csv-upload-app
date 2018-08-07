@@ -28,7 +28,7 @@ app.post('/import', function (request, response) {
     //after uploading file
     request.on('end', function () {
         //parse file after upload
-        var i = 0;
+        // var i = 0;
         uploadedPersons = [];
         csv.fromPath('./uploadedFile.csv')
             .on('data', function (data) {
