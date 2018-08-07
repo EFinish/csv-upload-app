@@ -25,6 +25,31 @@
         </div>
         <loading-bar v-if="uploading" :progress_percentage="progress_percentage" :progress_step="progress_step"></loading-bar>
         <search-field v-if="searchable"></search-field>
+        <b-modal id="selected-person-info-modal" size="lg" title="Person Information" ok-only>
+            <div class="text-center">
+                <p>Below is the information for the selected user.</p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Address</th>
+                            <th>Team</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{selected_person.id}}</td>
+                            <td>{{selected_person.name}}</td>
+                            <td>{{selected_person.age}}</td>
+                            <td>{{selected_person.address}}</td>
+                            <td>{{selected_person.team}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </b-modal>
     </div>
 </body>
 <script src="/public/js/dist/bundle.js" type="text/javascript"></script>
