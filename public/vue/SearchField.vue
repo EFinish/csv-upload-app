@@ -5,7 +5,7 @@
         </div>
         <div class="col-sm-6 form-group">
             <label for="searchField">Name</label>
-            <input id="searchField" v-model="search_text" @change="search" type="text" class="form-control" placeholder="Enter a name to search...">
+            <input id="searchField" v-model="search_text" type="text" class="form-control" placeholder="Enter a name to search...">
         </div>
         <div class="col-sm-3 form-group" >
             <b-list-group>
@@ -42,10 +42,17 @@ export default {
             return this.result_limit / 2;
         },
         results_first_half: function() {
-            return this.people_search_results.splice(0, this.result_limit_half);
+            return this.people_search_results.slice(0, this.result_limit_half);
         },
         results_last_half: function() {
-            return this.people_search_results.splice(this.result_limit_half, this.result_limit);
+            return this.people_search_results.slice(this.result_limit_half, this.result_limit);
+        }
+    },
+    watch: {
+        search_text: function(val, oldVal) {
+            if (val !== oldVal) {
+                this.search();
+            }
         }
     },
     methods: {
@@ -53,10 +60,8 @@ export default {
             var self = this;
             PeopleService.search(self.search_text)
             .then(function(response) {
-                console.log(response);
-                console.log(response.data);
                 var length = (response.data.length <= self.result_limit ? response.data.length : self.result_limit);
-                self.people_search_results = response.data.splice(0, length);
+                self.people_search_results = response.data.slice(0, length);
             })
             .catch(function(error){
                 console.log('FAILURE!!');
