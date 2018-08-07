@@ -6,7 +6,7 @@ Abstract
         - C : age
         - D : address
         - E : team (color)
-        - no delimeter
+        - , delimeter
     - show real time progress while importing
     - input field must be 'uploadField'
 - text input
