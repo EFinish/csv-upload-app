@@ -54,11 +54,9 @@ var app = new Vue({
     },
     methods: {
         setFileLoaded: function(value) {
-            console.log("file loaded "+value);
             this.file_loaded = value;
         },
         setUploading: function(value) {
-            console.log("uploading "+value);
             this.uploading = value;
         },
         setProgressPercentage: function(data) {
