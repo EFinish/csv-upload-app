@@ -20,7 +20,7 @@ var FileService = (function(){
             }
         );  
     };
-    
+
     return {
         upload: upload,
         status: status
@@ -30,7 +30,12 @@ var FileService = (function(){
 //people service: action 1 = search
 var PeopleService = (function(){
     var search = function(query) {
-        //post query using {query: query}
+        return axios.post(
+            '/search',
+            {
+                query: query
+            }
+        );  
     };
 
     return {
