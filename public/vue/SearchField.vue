@@ -20,6 +20,8 @@
 <script>
 import {PeopleService} from '../js/services';
 
+import {EventBus} from '../../webpackapp.js';
+
 export default {
     data: function(){
         return {
@@ -42,7 +44,8 @@ export default {
             });
         },
         selectPerson: function(person) {
-            console.log(person);
+            EventBus.$emit('set-selected-person', person);
+            EventBus.$emit('show-modal', 'selected-person-info-modal');
         }
     }
 }
