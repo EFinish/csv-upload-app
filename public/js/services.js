@@ -4,7 +4,7 @@ var axios = require('axios');
 
 //file service: action 1 = upload
 var FileService = (function(){
-    var upload = function(formData) {
+    var upload = function(formData, onUploadProgressCallback) {
         //upload file via post to /upload
         return axios.post(
             '/import',
@@ -12,13 +12,18 @@ var FileService = (function(){
             {
                 headers: {
                     'Content-Type': 'multipart/form-data'
+                },
+                onUploadProgress: function(progress) {
+                    var progressTotal =  parseInt( Math.round( ( progress.loaded * 100 ) / progress.total ) );
+                    onUploadProgressCallback(progressTotal);
                 }
             }
         );  
     };
-
+    
     return {
-        upload: upload
+        upload: upload,
+        status: status
     };
 })();
 
