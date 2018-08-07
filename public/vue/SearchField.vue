@@ -5,7 +5,7 @@
         </div>
         <div class="col-sm-6">
             <label for="searchField">Name</label>
-            <input id="searchField" type="file" class="form-control" placeholder="Enter a name to search...">
+            <input id="searchField" type="text" class="form-control" placeholder="Enter a name to search...">
         </div>
         <div class="col-sm-6">
 
