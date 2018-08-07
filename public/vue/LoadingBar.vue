@@ -14,7 +14,7 @@ export default {
         "progress_percentage",
         "progress_step"
     ],
-    calculated: {
+    computed: {
         variant_class: function() {
             if(this.progress_step === "Uploading file") {
                 return "warning";
