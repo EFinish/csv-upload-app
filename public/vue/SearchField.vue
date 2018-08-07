@@ -65,7 +65,6 @@ export default {
             })
             .catch(function(error){
                 console.log('FAILURE!!');
-                console.log(error);
             });
         },
         selectPerson: function(person) {

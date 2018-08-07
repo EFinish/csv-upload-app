@@ -50,7 +50,6 @@ export default {
             .then(function(response){
                 EventBus.$emit('set-uploading', false);
                 EventBus.$emit('set-file-loaded', true);
-                console.log("done!");
             })
             .catch(function(){
                 console.log('FAILURE!!');

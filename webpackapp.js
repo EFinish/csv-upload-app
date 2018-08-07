@@ -72,7 +72,6 @@ var app = new Vue({
         },
         setSelectedPerson: function(data) {
             this.selected_person = data;
-            console.log(data);
         },
         showModal: function(name) {
             this.$root.$emit('bv::show::modal', name);
